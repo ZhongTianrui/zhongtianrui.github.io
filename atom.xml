@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>http://lgztoi.tk</id>
+    <title>ztrztr</title>
+    <updated>2022-12-29T03:09:25.063Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="http://lgztoi.tk"/>
+    <link rel="self" href="http://lgztoi.tk/atom.xml"/>
+    <subtitle>&lt;a style = &quot;color : black;&quot; href = &quot;&lt;a style = &quot;color : black;&quot; href = &quot;http://ztrblog.byethost31.com/wordpress/wp-admin&quot;&gt; link&lt;/a&gt;
+&quot;&gt; link&lt;/a&gt;
+的静态页面</subtitle>
+    <logo>http://lgztoi.tk/images/avatar.png</logo>
+    <icon>http://lgztoi.tk/favicon.ico</icon>
+    <rights>All rights reserved 2022, ztrztr</rights>
+    <entry>
+        <title type="html"><![CDATA[网站]]></title>
+        <id>http://lgztoi.tk/post/wang-zhan/</id>
+        <link href="http://lgztoi.tk/post/wang-zhan/">
+        </link>
+        <updated>2022-12-28T08:40:04.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[倒计时]]></title>
+        <id>http://lgztoi.tk/post/dao-ji-shi/</id>
+        <link href="http://lgztoi.tk/post/dao-ji-shi/">
+        </link>
+        <updated>2022-12-26T08:39:48.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Cow College B]]></title>
+        <id>http://lgztoi.tk/post/cow-college-b/</id>
+        <link href="http://lgztoi.tk/post/cow-college-b/">
+        </link>
+        <updated>2022-12-24T09:15:19.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[浅谈图的储存方式]]></title>
+        <id>http://lgztoi.tk/post/qian-tan-tu-de-chu-cun-fang-shi/</id>
+        <link href="http://lgztoi.tk/post/qian-tan-tu-de-chu-cun-fang-shi/">
+        </link>
+        <updated>2022-12-23T12:41:53.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[hello]]></title>
+        <id>http://lgztoi.tk/post/hello/</id>
+        <link href="http://lgztoi.tk/post/hello/">
+        </link>
+        <updated>2022-12-23T09:00:13.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[浅谈迪捷斯卡算法]]></title>
+        <id>http://lgztoi.tk/post/qian-tan-di-jie-si-qia-suan-fa/</id>
+        <link href="http://lgztoi.tk/post/qian-tan-di-jie-si-qia-suan-fa/">
+        </link>
+        <updated>2022-12-23T07:33:43.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[并查集]]></title>
+        <id>http://lgztoi.tk/post/bing-cha-ji/</id>
+        <link href="http://lgztoi.tk/post/bing-cha-ji/">
+        </link>
+        <updated>2022-12-22T08:41:50.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[白嫖wordpress]]></title>
+        <id>http://lgztoi.tk/post/bai-piao-wordpress/</id>
+        <link href="http://lgztoi.tk/post/bai-piao-wordpress/">
+        </link>
+        <updated>2022-12-22T08:40:23.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2022/12/22日记]]></title>
+        <id>http://lgztoi.tk/post/20221222-ri-ji/</id>
+        <link href="http://lgztoi.tk/post/20221222-ri-ji/">
+        </link>
+        <updated>2022-12-22T01:39:05.000Z</updated>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[test]]></title>
+        <id>http://lgztoi.tk/post/test/</id>
+        <link href="http://lgztoi.tk/post/test/">
+        </link>
+        <updated>2022-12-08T05:32:44.000Z</updated>
+    </entry>
+</feed>
