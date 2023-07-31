@@ -1,0 +1,1158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://zhongtianrui.github.io</id>
+    <title>ztr的博客</title>
+    <updated>2023-07-31T02:40:26.050Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://zhongtianrui.github.io"/>
+    <link rel="self" href="https://zhongtianrui.github.io/atom.xml"/>
+    <subtitle>不积跬步无以至千里，不积小流无以成江海。</subtitle>
+    <logo>https://zhongtianrui.github.io/images/avatar.png</logo>
+    <icon>https://zhongtianrui.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2023, ztr的博客</rights>
+    <entry>
+        <title type="html"><![CDATA[ZOJ]]></title>
+        <id>https://zhongtianrui.github.io/post/zoj/</id>
+        <link href="https://zhongtianrui.github.io/post/zoj/">
+        </link>
+        <updated>2023-04-18T11:54:42.000Z</updated>
+        <content type="html"><![CDATA[<p>正在为您搜索：nodejs、js、html、css</p>
+<p>开发一个完整的 OJ 平台需要涉及很多方面，包括前后端开发、数据库设计、安全性等。在此，我为您提供一个简单的 OJ 示例，您可以根据需要进行修改和扩展。</p>
+<p>后端：</p>
+<p>首先，我们使用 Node.js 和 Express 框架来搭建后端服务器。</p>
+<pre><code class="language-javascript">const express = require('express');
+const bodyParser = require('body-parser');
+
+const app = express();
+const port = 3000;
+
+// 处理 POST 请求体
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// 跨域处理
+app.use(function(req, res, next) {
+  res.header(&quot;Access-Control-Allow-Origin&quot;, &quot;*&quot;);
+  res.header(&quot;Access-Control-Allow-Headers&quot;, &quot;Origin, X-Requested-With, Content-Type, Accept&quot;);
+  next();
+});
+
+// 定义路由
+app.post('/submit-code', (req, res) =&gt; {
+  // 处理提交代码
+});
+
+app.get('/get-problems', (req, res) =&gt; {
+  // 获取题目列表
+});
+
+app.get('/get-problem/:id', (req, res) =&gt; {
+  // 获取特定编号的题目
+});
+
+// 启动服务器
+app.listen(port, () =&gt; {
+  console.log(`Server is listening on port ${port}`);
+});
+</code></pre>
+<p>上述代码中，我们使用 Express 框架来创建后端服务器，并定义了三个接口：</p>
+<ul>
+<li><code>/submit-code</code> 接收用户提交的代码，并返回评测结果。</li>
+<li><code>/get-problems</code> 获取题目列表。</li>
+<li><code>/get-problem/:id</code> 获取特定编号的题目。</li>
+</ul>
+<p>前端：</p>
+<p>接下来，我们使用 HTML 和 CSS 来设计和布局前端页面，使用 JS 来处理用户交互和与后端通信。</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;title&gt;OJ&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;styles.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;OJ&lt;/h1&gt;
+    &lt;nav&gt;
+      &lt;a href=&quot;#&quot;&gt;首页&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;个人中心&lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;退出登录&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;div class=&quot;problems&quot;&gt;
+      &lt;h2&gt;题目列表&lt;/h2&gt;
+      &lt;ul&gt;&lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;editor&quot;&gt;
+      &lt;h2&gt;代码编辑器&lt;/h2&gt;
+      &lt;form&gt;
+        &lt;div class=&quot;input-group&quot;&gt;
+          &lt;label for=&quot;language&quot;&gt;编程语言：&lt;/label&gt;
+          &lt;select id=&quot;language&quot;&gt;
+            &lt;option value=&quot;cpp&quot;&gt;C++&lt;/option&gt;
+            &lt;option value=&quot;java&quot;&gt;Java&lt;/option&gt;
+            &lt;option value=&quot;python&quot;&gt;Python&lt;/option&gt;
+          &lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;input-group&quot;&gt;
+          &lt;label for=&quot;code&quot;&gt;代码：&lt;/label&gt;
+          &lt;textarea id=&quot;code&quot;&gt;&lt;/textarea&gt;
+        &lt;/div&gt;
+        &lt;button type=&quot;submit&quot; id=&quot;submit-code&quot;&gt;提交代码&lt;/button&gt;
+      &lt;/form&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;result&quot;&gt;
+      &lt;h2&gt;评测结果&lt;/h2&gt;
+      &lt;p&gt;&lt;span id=&quot;status&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+      &lt;p&gt;&lt;span id=&quot;message&quot;&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+
+  &lt;script src=&quot;app.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<pre><code class="language-css">* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+main {
+  display: flex;
+  padding: 50px;
+}
+
+.problems {
+  flex-basis: 30%;
+  margin-right: 50px;
+}
+
+.problems h2 {
+  margin-bottom: 20px;
+}
+
+.problems ul {
+  list-style-type: none;
+}
+
+.problems li {
+  margin-bottom: 10px;
+}
+
+.editor {
+  flex-basis: 50%;
+}
+
+.editor h2 {
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: inline-block;
+  width: 120px;
+}
+
+.input-group select,
+.input-group textarea {
+  width: 400px;
+  height: 200px;
+  resize: none;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.result {
+  flex-basis: 20%;
+}
+
+.result h2 {
+  margin-bottom: 20px;
+}
+
+.result p {
+  margin-bottom: 10px;
+}
+</code></pre>
+<pre><code class="language-javascript">// 获取题目列表
+function getProblems() {
+  fetch('http://localhost:3000/get-problems')
+    .then(response =&gt; response.json())
+    .then(data =&gt; {
+      const ul = document.querySelector('.problems ul');
+      ul.innerHTML = '';
+      data.forEach(problem =&gt; {
+        const li = document.createElement('li');
+        li.innerHTML = `&lt;a href=&quot;#&quot; data-id=&quot;${problem.id}&quot;&gt;${problem.title}&lt;/a&gt;`;
+        ul.appendChild(li);
+      });
+    })
+    .catch(error =&gt; console.error(error));
+}
+
+// 获取特定编号的题目
+function getProblem(id) {
+  fetch(`http://localhost:3000/get-problem/${id}`)
+    .then(response =&gt; response.json())
+    .then(data =&gt; {
+      const editor = document.querySelector('.editor');
+      editor.innerHTML = `
+        &lt;h2&gt;${data.title}&lt;/h2&gt;
+        &lt;form&gt;
+          &lt;div class=&quot;input-group&quot;&gt;
+            &lt;label for=&quot;language&quot;&gt;编程语言：&lt;/label&gt;
+            &lt;select id=&quot;language&quot;&gt;
+              &lt;option value=&quot;cpp&quot;&gt;C++&lt;/option&gt;
+              &lt;option value=&quot;java&quot;&gt;Java&lt;/option&gt;
+              &lt;option value=&quot;python&quot;&gt;Python&lt;/option&gt;
+            &lt;/select&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;input-group&quot;&gt;
+            &lt;label for=&quot;code&quot;&gt;代码：&lt;/label&gt;
+            &lt;textarea id=&quot;code&quot;&gt;&lt;/textarea&gt;
+          &lt;/div&gt;
+          &lt;button type=&quot;submit&quot; id=&quot;submit-code&quot;&gt;提交代码&lt;/button&gt;
+        &lt;/form&gt;
+      `;
+      const code = editor.querySelector('#code');
+      code.value = data.template;
+      const form = editor.querySelector('form');
+      form.addEventListener('submit', event =&gt; {
+        event.preventDefault();
+        const language = form.querySelector('#language').value;
+        const code = form.querySelector('#code').value;
+        submitCode(id, language, code);
+      });
+    })
+    .catch(error =&gt; console.error(error));
+}
+
+// 提交代码
+function submitCode(id, language, code) {
+  fetch('http://localhost:3000/submit-code', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      id: id,
+      language: language,
+      code: code
+    })
+  })
+    .then(response =&gt; response.json())
+    .then(data =&gt; {
+      const status = document.querySelector('#status');
+      const message = document.querySelector('#message');
+      status.innerText = data.status;
+      if (data.status === 'Accepted') {
+        status.style.color = 'green';
+      } else {
+        status.style.color = 'red';
+      }
+      message.innerText = data.message;
+    })
+    .catch(error =&gt; console.error(error));
+}
+
+// 页面加载完成时执行
+document.addEventListener('DOMContentLoaded', () =&gt; {
+  getProblems();
+  const ul = document.querySelector('.problems ul');
+  ul.addEventListener('click', event =&gt; {
+    const a = event.target.closest('a');
+    if (a) {
+      event.preventDefault();
+      getProblem(a.dataset.id);
+    }
+  });
+});
+</code></pre>
+<p>上述代码中，我们使用 fetch API 来与后端进行通信，并根据返回值来更新前端页面。</p>
+<p>注意事项：</p>
+<ul>
+<li>这只是一个非常简单的 OJ 示例，还需要考虑诸如安全性、权限控制、性能等问题。</li>
+<li>上述代码未考虑代码注入和 SQL 注入等安全问题，请自行扩展和改进代码。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[z]]></title>
+        <id>https://zhongtianrui.github.io/post/z/</id>
+        <link href="https://zhongtianrui.github.io/post/z/">
+        </link>
+        <updated>2023-04-14T08:24:49.000Z</updated>
+        <content type="html"><![CDATA[<p>正在为您搜索：nodejs、评测系统</p>
+<p>为了实现评测系统，需要使用以下技术：</p>
+<ul>
+<li>Node.js 运行环境</li>
+<li>Express web框架</li>
+<li>MongoDB 数据库</li>
+<li>Mongoose ORM工具</li>
+<li>Docker 容器化技术</li>
+</ul>
+<p>首先，在本地计算机安装Node.js和MongoDB，并创建一个新的目录作为项目的根目录。在终端中进入该目录并运行以下命令：</p>
+<pre><code>npm init
+</code></pre>
+<p>这将初始化一个新的Node.js项目，并生成一个 package.json 文件。接下来，我们需要安装依赖项：</p>
+<pre><code>npm install express mongoose body-parser morgan
+</code></pre>
+<p>这些依赖项分别是：</p>
+<ul>
+<li>express：轻量级web框架，用于处理HTTP请求和响应。</li>
+<li>mongoose：Node.js的ORM工具，用于连接和操作MongoDB数据库。</li>
+<li>body-parser：Express中间件，用于解析HTTP请求体并提取数据。</li>
+<li>morgan：Express中间件，用于记录HTTP请求的日志。</li>
+</ul>
+<p>创建一个名为 <code>index.js</code> 的文件，这是主要的服务启动文件。添加以下代码：</p>
+<pre><code class="language-javascript">const express = require('express');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+
+const app = express();
+
+// 设置端口号
+const port = process.env.PORT || 3000;
+
+// 解析 application/json 类型的请求体
+app.use(bodyParser.json());
+
+// 记录HTTP请求日志
+app.use(morgan('combined'));
+
+// 启动服务器
+app.listen(port, () =&gt; {
+  console.log(`Server started on port ${port}`);
+});
+</code></pre>
+<p>这将创建一个新的Express应用程序，并使用body-parser和morgan中间件。现在，我们可以启动服务器并验证它是否工作：</p>
+<pre><code>node index.js
+</code></pre>
+<p>当看到 &quot;Server started on port 3000&quot; 的消息时，表示服务器已启动，并在端口3000上监听HTTP请求。</p>
+<p>接下来，创建MongoDB模型。在项目根目录中创建一个名为 models 的文件夹，并创建 <code>Problem.js</code> 文件。添加以下代码：</p>
+<pre><code class="language-javascript">const mongoose = require('mongoose');
+
+const problemSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  description: { type: String, required: true },
+  difficulty: { type: String, required: true },
+  testCases: [{
+    input: { type: String, required: true },
+    output: { type: String, required: true }
+  }]
+});
+
+const Problem = mongoose.model('Problem', problemSchema);
+
+module.exports = Problem;
+</code></pre>
+<p>这是一个名为 <code>Problem</code> 的模型，每个问题都包含题目标题、描述、难度和测试用例。测试用例是一个包含输入和输出字段的数组。现在，我们需要连接到MongoDB数据库。在 <code>index.js</code> 文件中添加以下代码：</p>
+<pre><code class="language-javascript">const mongoose = require('mongoose');
+
+// 连接到本地MongoDB数据库
+mongoose.connect('mongodb://localhost/evaluate', { useNewUrlParser: true });
+
+// 检测连接是否成功
+mongoose.connection.on('connected', () =&gt; {
+  console.log('MongoDB connected');
+});
+
+// 检测连接是否异常
+mongoose.connection.on('error', (err) =&gt; {
+  console.log(`MongoDB error: ${err}`);
+});
+</code></pre>
+<p>这将连接到名为 <code>evaluate</code> 的本地MongoDB数据库。</p>
+<p>现在，我们可以编写路由处理程序。在项目根目录中创建一个名为 routes 的文件夹，并创建 <code>problems.js</code> 文件。添加以下代码：</p>
+<pre><code class="language-javascript">const express = require('express');
+const router = express.Router();
+const Problem = require('../models/Problem');
+
+// 获取所有问题
+router.get('/', async (req, res) =&gt; {
+  const problems = await Problem.find().exec();
+  res.json(problems);
+});
+
+// 创建新问题
+router.post('/', async (req, res) =&gt; {
+  const problem = new Problem(req.body);
+  await problem.save();
+  res.json(problem);
+});
+
+// 获取单个问题
+router.get('/:id', async (req, res) =&gt; {
+  const problem = await Problem.findById(req.params.id).exec();
+  res.json(problem);
+});
+
+// 更新问题
+router.put('/:id', async (req, res) =&gt; {
+  const problem = await Problem.findByIdAndUpdate(req.params.id, req.body, { new: true }).exec();
+  res.json(problem);
+});
+
+// 删除问题
+router.delete('/:id', async (req, res) =&gt; {
+  await Problem.findByIdAndDelete(req.params.id).exec();
+  res.sendStatus(204);
+});
+
+module.exports = router;
+</code></pre>
+<p>这些路由处理程序使用Express路由器来处理HTTP请求。对于每个操作，使用Mongoose模型进行查询和更新。</p>
+<p>现在，我们需要注册路由处理程序。修改 <code>index.js</code> 文件，添加以下代码：</p>
+<pre><code class="language-javascript">const problemRoutes = require('./routes/problems');
+
+// 等待MongoDB连接成功后再注册路由
+mongoose.connection.on('connected', () =&gt; {
+  app.use('/problems', problemRoutes);
+
+  console.log('Routes registered');
+});
+</code></pre>
+<p>这将等待MongoDB连接成功，然后注册所有路由。</p>
+<p>最后，我们将使用Docker容器化技术来打包和部署该应用程序。创建一个名为 <code>Dockerfile</code> 的文件并添加以下内容：</p>
+<pre><code>FROM node:12
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD [&quot;npm&quot;, &quot;start&quot;]
+</code></pre>
+<p>这个Dockerfile使用Node.js版本12作为基础镜像，并设置了工作目录、安装依赖项、拷贝文件等。这样我们就可以使用Docker命令构建和运行容器了。在项目根目录中运行以下命令：</p>
+<pre><code>docker build -t evaluate-app .
+</code></pre>
+<p>这会根据Dockerfile创建一个名为 <code>evaluate-app</code> 的镜像。然后，我们可以运行该容器并将其映射到主机端口上：</p>
+<pre><code>docker run -p 3000:3000 evaluate-app
+</code></pre>
+<p>现在，我们已经成功地编写了一个评测系统，并使用Node.js，Express和MongoDB等技术。该系统还使用Docker容器化技术进行了打包和部署，可以轻松地在任何计算机上运行。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[计划2]]></title>
+        <id>https://zhongtianrui.github.io/post/ji-hua-2/</id>
+        <link href="https://zhongtianrui.github.io/post/ji-hua-2/">
+        </link>
+        <updated>2023-04-13T12:44:18.000Z</updated>
+        <content type="html"><![CDATA[<ul>
+<li>因为没有算法大纲而迷茫，不知道学什么？</li>
+<li>题海茫茫，找不到典型/合适的例题练手？</li>
+</ul>
+<p><strong>这份 科学、全面 的能力进阶综合题单一定能帮到你！</strong></p>
+<p>这份题单包含了竞赛中，从入门，到 NOI、ICPC 等竞赛的常用算法和技巧，配以典型的例题用以练手，大部分是模版题和经典题，可以帮助了解oi中有哪些知识点，构建起知识框架。</p>
+<p>新手可以把它作为学习方向的引导（如果仅参加 CSP-JS/NOIP 而并不打算参加省选或省选以上级别的比赛，这份题单中许多算法并不是你必须要掌握的，建议了解清楚后学习），神犇可以把它作为查漏补缺和复习的大纲。如果希望熟练的掌握某个算法，还请另找相关题目多加练习。</p>
+<p><strong>为了方便按知识难度刷题的用户，这里给出一些建议：</strong></p>
+<ul>
+<li>
+<p>对于初学者，建议先完成 Part 1,2 两部分内容，为接下来的学习打好基础。</p>
+</li>
+<li>
+<p>对于要参加 CSP-S/NOIP 提高组 的选手，建议在前面的基础上优先完成 Part 3.1-3.4, 4.1-4.4, 6.1-6.5, 7.1-7.8, 8.1-8.7 的内容（具体内容见下），在此基础上继续完成其他内容。</p>
+</li>
+<li>
+<p>每个专题下的题目先给出模板，剩下的题目均按照难度递增顺序排序，部分难度较高的综合性题目建议达到一定能力后再尝试解决。</p>
+</li>
+</ul>
+<p>希望这份题单能成为你 OI 生涯中有效的助力，有什么修改建议可以私信我。</p>
+<h2 id="完整的题单戳这里"><a href="https://studyingfather.com/archives/841">完整的题单戳这里</a></h2>
+<p><a href="https://www.luogu.com.cn/training/9349">Part 1 入门阶段</a></p>
+<ul>
+<li>Part  1.1 从零开始</li>
+<li>Part  1.2 数组基础</li>
+<li>Part  1.3 字符串基础</li>
+<li>Part  1.4 函数，递归及递推</li>
+</ul>
+<p><a href="https://www.luogu.com.cn/training/9374">Part 2 基础算法</a></p>
+<ul>
+<li>Part  2.1 模拟</li>
+<li>Part  2.2 排序算法</li>
+<li>Part  2.3 二分答案</li>
+<li>Part  2.4 分治</li>
+<li>Part  2.5 贪心</li>
+<li>Part  2.6 构造</li>
+<li>Part  2.7 高精度</li>
+<li>Part  2.8 前缀和 &amp; 差分</li>
+</ul>
+<p><a href="https://www.luogu.com.cn/training/9376">Part 3 搜索</a></p>
+<ul>
+<li>Part  3.1 深度优先搜索</li>
+<li>Part  3.2 广度优先搜索</li>
+<li>Part  3.3 记忆化搜索</li>
+<li>Part  3.4 搜索的剪枝</li>
+<li>Part  3.5 双向搜索</li>
+<li>Part  3.6 A*</li>
+<li>Part  3.7 IDA*</li>
+<li>Part  3.8 DLX</li>
+</ul>
+<p>Part  4 动态规划</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/training/9350">Part 4.1-4.4 动态规划</a>
+<ul>
+<li>Part  4.1 线性动态规划</li>
+<li>Part  4.2 背包动态规划</li>
+<li>Part  4.3 区间动态规划</li>
+<li>Part  4.4 树形动态规划</li>
+</ul>
+</li>
+<li><a href="https://www.luogu.com.cn/training/9352">Part 4.5-4.12 动态规划</a>
+<ul>
+<li>Part  4.5 状态压缩动态规划</li>
+<li>Part  4.6 倍增优化动态规划</li>
+<li>Part  4.7 数据结构优化动态规划</li>
+<li>Part  4.8 单调队列优化动态规划</li>
+<li>Part  4.9 斜率优化动态规划</li>
+<li>Part  4.10 决策单调性优化动态规划</li>
+<li>Part  4.11 数位统计类动态规划</li>
+<li>Part  4.12 轮廓线动态规划</li>
+</ul>
+</li>
+</ul>
+<p>Part  5 字符串</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/training/9372">Part 5.1-5.6 字符串</a>
+<ul>
+<li>Part  5.1 字符串哈希</li>
+<li>Part  5.2 KMP</li>
+<li>Part  5.3 Manacher</li>
+<li>Part  5.4 Trie树</li>
+<li>Part  5.5 AC自动机</li>
+<li>Part  5.6 回文自动机</li>
+</ul>
+</li>
+<li><a href="https://www.luogu.com.cn/training/9373">Part 5.7-5.8 字符串</a>
+<ul>
+<li>Part  5.7 后缀数组</li>
+<li>Part  5.8 后缀自动机</li>
+</ul>
+</li>
+</ul>
+<p>Part  6 数学</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/training/9377">Part 6.1-6.4 数学</a>
+<ul>
+<li>Part  6.1 位运算</li>
+<li>Part  6.2 整除相关
+<ul>
+<li>Part  6.2.1 素数</li>
+<li>Part  6.2.2 最大公约数</li>
+<li>Part  6.2.3 欧拉函数</li>
+</ul>
+</li>
+<li>Part  6.3 同余方程
+<ul>
+<li>Part  6.3.1 线性同余方程&amp;乘法逆元</li>
+<li>Part  6.3.2 中国剩余定理</li>
+<li>Part  6.3.3 高次同余方程</li>
+</ul>
+</li>
+<li>Part  6.4 博弈论</li>
+</ul>
+</li>
+<li><a href="https://www.luogu.com.cn/training/9378">Part 6.5-6.6 数学</a>
+<ul>
+<li>Part  6.5 概率与期望</li>
+<li>Part  6.6 组合数学
+<ul>
+<li>Part  6.6.1 排列组合</li>
+<li>Part  6.6.2 卡特兰数&amp;斯特林数</li>
+<li>Part  6.6.3 容斥原理</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.luogu.com.cn/training/9379">Part 6.7-6.8 数学</a>
+<ul>
+<li>Part  6.7 线性代数
+<ul>
+<li>Part  6.7.1 矩阵</li>
+<li>Part  6.7.2 高斯消元</li>
+<li>Part  6.7.3 线性基</li>
+</ul>
+</li>
+<li>Part  6.8 多项式</li>
+</ul>
+</li>
+<li><a href="https://www.luogu.com.cn/training/9380">Part 6.9-6.13 数学</a>
+<ul>
+<li>Part  6.9 莫比乌斯反演</li>
+<li>Part  6.10 筛法</li>
+<li>Part  6.11 线性规划</li>
+<li>Part  6.12 数值方法
+<ul>
+<li>Part  6.12.1 三分法</li>
+<li>Part  6.12.2 自适应辛普森法</li>
+</ul>
+</li>
+<li>Part  6.13 置换群</li>
+</ul>
+</li>
+</ul>
+<p>Part  7 数据结构</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/training/9381">Part 7.1-7.7 数据结构</a>
+<ul>
+<li>Part  7.1 链表</li>
+<li>Part  7.2 栈</li>
+<li>Part  7.3 队列</li>
+<li>Part  7.4 并查集</li>
+<li>Part  7.5 二叉堆</li>
+<li>Part  7.6 ST表</li>
+<li>Part  7.7 树状数组</li>
+</ul>
+</li>
+<li><a href="https://www.luogu.com.cn/training/9382">Part 7.8-7.12 数据结构</a>
+<ul>
+<li>Part  7.8 线段树</li>
+<li>Part  7.9 分块</li>
+<li>Part  7.10 可并堆</li>
+<li>Part  7.11 主席树</li>
+<li>Part  7.12 平衡树</li>
+</ul>
+</li>
+<li><a href="https://www.luogu.com.cn/training/9383">Part 7.13-7.18 数据结构</a>
+<ul>
+<li>Part  7.13 树链剖分</li>
+<li>Part  7.14 树套树</li>
+<li>Part  7.15 动态树</li>
+<li>Part  7.16 可持久化数据结构</li>
+<li>Part  7.17 K-D Tree</li>
+<li>Part  7.18 珂朵莉树</li>
+</ul>
+</li>
+</ul>
+<p>Part  8 图论</p>
+<ul>
+<li><a href="https://www.luogu.com.cn/training/9384">Part 8.1-8.6 图论</a>
+<ul>
+<li>Part  8.1 图的存储与遍历</li>
+<li>Part  8.2 最短路问题</li>
+<li>Part  8.3 树上问题
+<ul>
+<li>Part  8.3.1 二叉树</li>
+<li>Part  8.3.2 树的直径</li>
+<li>Part  8.3.3 最近公共祖先</li>
+</ul>
+</li>
+<li>Part  8.4 生成树</li>
+<li>Part  8.5 拓扑排序</li>
+<li>Part  8.6 差分约束</li>
+</ul>
+</li>
+<li><a href="https://www.luogu.com.cn/training/9385">Part 8.7-8.9.2 图论</a>
+<ul>
+<li>Part  8.7 图的连通性相关</li>
+<li>Part  8.8 二分图</li>
+<li>Part  8.9 网络流
+<ul>
+<li>Part  8.9.1 最大流</li>
+<li>Part  8.9.2 最小割</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://www.luogu.com.cn/training/9386">Part 8.9.3-8.13 图论</a>
+<ul>
+<li>Part  8.9.3 费用流</li>
+<li>Part  8.9.4 上下界网络流</li>
+<li>Part  8.10 2-SAT</li>
+<li>Part  8.11 点分治</li>
+<li>Part  8.12 虚树</li>
+<li>Part  8.13 矩阵树定理</li>
+</ul>
+</li>
+</ul>
+<p><a href="https://www.luogu.com.cn/training/9387">Part 9 计算几何</a></p>
+<ul>
+<li>Part  9.1 凸包</li>
+<li>Part  9.2 旋转卡壳</li>
+<li>Part  9.3 半平面交</li>
+</ul>
+<p><a href="https://www.luogu.com.cn/training/9388">Part 10 杂项</a></p>
+<ul>
+<li>Part  10.1 模拟退火</li>
+<li>Part  10.2 0/1 分数规划</li>
+<li>Part  10.3 离线算法
+<ul>
+<li>Part  10.3.1 CDQ 分治</li>
+<li>Part  10.3.2 整体二分</li>
+<li>Part  10.3.3 莫队</li>
+</ul>
+</li>
+<li>Part  10.4 奇怪的题目</li>
+<li>Part  10.5 非传统题
+<ul>
+<li>Part  10.5.1 提交答案题</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 id="申明">【申明】</h4>
+<p>这份题单原载于上面的<a href="https://studyingfather.com/archives/841">原题单</a></p>
+<p>在此对于这份题单的整理者<a href="https://www.luogu.com.cn/user/22030">StudyingFather</a>等表示<strong>真挚的感谢和敬意</strong></p>
+<h4 id="修订记录">修订记录</h4>
+<pre><code>2020.7.1：更新题单说明。
+2020.8.29：感谢 [_jwj_](https://www.luogu.com.cn/user/187543)提供了新的排版。
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[计划]]></title>
+        <id>https://zhongtianrui.github.io/post/ji-hua/</id>
+        <link href="https://zhongtianrui.github.io/post/ji-hua/">
+        </link>
+        <updated>2023-04-13T11:48:28.000Z</updated>
+        <content type="html"><![CDATA[<p>学习计划：</p>
+<ol>
+<li>先把 J1 和 J2 的知识点搞定，保证1.5~2h内拿满分。</li>
+<li>T3 和 T4 打暴力，<mark>需要练习</mark></li>
+</ol>
+<p>主要先把这些搞定。至少保证 J300 S200</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[笔记]]></title>
+        <id>https://zhongtianrui.github.io/post/bi-ji/</id>
+        <link href="https://zhongtianrui.github.io/post/bi-ji/">
+        </link>
+        <updated>2023-04-13T08:13:15.000Z</updated>
+        <content type="html"><![CDATA[<p>这个软件可以作为笔记用，到时候再发布到 <a href="https://ztrztr.top">https://ztrztr.top</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[P8717 题解]]></title>
+        <id>https://zhongtianrui.github.io/post/p8717-ti-jie/</id>
+        <link href="https://zhongtianrui.github.io/post/p8717-ti-jie/">
+        </link>
+        <updated>2023-02-24T08:45:40.000Z</updated>
+        <content type="html"><![CDATA[<p>一道无敌水的题目...</p>
+<h2 id="思路">思路：</h2>
+<p>这道题就是让我们求最大值、最小值和平均数，我们用擂台法算出最大值和最小值：</p>
+<ol>
+<li>把 <code>maxn</code> 设置为 <code>-1e9</code>，<code>minn</code> 设置为 <code>1e9</code></li>
+<li>读入</li>
+<li>如果这个数大于 <code>maxn</code>，<code>maxn = </code> 这个数，如果这个数小于 <code>minn</code>，<code>minn = </code> 这个数</li>
+</ol>
+<p>注意输出时要强制类型转换</p>
+<h2 id="代码">代码：</h2>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+int n, maxn = -1e9, minn = 1e9;
+double sum;
+int main() {
+    // ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+    cin &gt;&gt; n;
+    for (int i = 1; i &lt;= n; i ++) {
+        int x; cin &gt;&gt; x;
+        sum += x;
+        maxn = max(maxn, x);
+        minn = min(minn, x);
+        // cout &lt;&lt; maxn &lt;&lt; &quot; &quot; &lt;&lt; minn &lt;&lt; &quot; &quot; &lt;&lt; sum &lt;&lt; &quot;\n&quot;;
+    }
+    // cout &lt;&lt; maxn &lt;&lt; &quot;\n&quot; &lt;&lt; minn &lt;&lt; &quot;\n&quot;;
+    printf(&quot;%d\n%d\n%.2lf&quot;, maxn, minn, sum / n);
+    return 0;
+}</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[二叉树学习笔记]]></title>
+        <id>https://zhongtianrui.github.io/post/er-cha-shu-xue-xi-bi-ji/</id>
+        <link href="https://zhongtianrui.github.io/post/er-cha-shu-xue-xi-bi-ji/">
+        </link>
+        <updated>2023-02-17T11:49:26.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="二叉树学习笔记">二叉树学习笔记</h1>
+<p>二叉树（binary tree）是指树中节点的度不大于 2 的有序树，它是一种最简单且最重要的树。二叉树的递归定义为：二叉树是一棵空树，或者是一棵由一个根节点和两棵互不相交的，分别称作根的左子树和右子树组成的非空树；左子树和右子树又同样都是二叉树。</p>
+<p>我们可以用一个数组来储存二叉树，数组的顺序是层次遍历。定义 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">a_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.58056em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 的两个子节点为 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mn>2</mn><mo>×</mo><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub></mrow><annotation encoding="application/x-tex">a_{2 \times i + 1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mbin mtight">×</span><span class="mord mathdefault mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><msub><mi>a</mi><mrow><mn>2</mn><mo>×</mo><mi>i</mi></mrow></msub></mrow><annotation encoding="application/x-tex">a_{2 \times i}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.638891em;vertical-align:-0.208331em;"></span><span class="mord"><span class="mord mathdefault">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2</span><span class="mbin mtight">×</span><span class="mord mathdefault mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.208331em;"><span></span></span></span></span></span></span></span></span></span>。</p>
+<h2 id="前序遍历">前序遍历</h2>
+<p>前序遍历就是遵循以下规则的遍历方式：</p>
+<ol>
+<li>一直往左边走，不到头不停下。</li>
+<li>到头后回溯到上一个分支，回到规则 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>.</li>
+<li>当回溯回到第一个，说明全部回溯完毕。</li>
+</ol>
+<p>代码：</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+string a[10000005];
+void pre(int nw) {
+	if (a[nw] == &quot;NULL&quot;) {
+		return;
+	}
+	cout &lt;&lt; a[nw] &lt;&lt; &quot; &quot;;
+	pre(nw * 2);
+	pre(nw * 2 + 1);
+}
+int main() {
+	ios::sync_with_stdio(false);
+	int n;
+	cin &gt;&gt; n;
+	for (long long i = 1; i &lt;= 10000000; i++) a[i] = &quot;NULL&quot;;
+	for (int i = 1; i &lt;= n; i++) {
+		cin &gt;&gt; a[i];
+	}
+	pre(1);
+	return 0;
+}
+</code></pre>
+<h2 id="后序遍历">后序遍历</h2>
+<p>规则：</p>
+<ol>
+<li>一直往右边走，不到头不停下。</li>
+<li>到头后回溯到上一个分支，回到规则 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>1</mn></mrow><annotation encoding="application/x-tex">1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">1</span></span></span></span>.</li>
+<li>当回溯回到第一个，说明全部回溯完毕。</li>
+</ol>
+<p>代码：</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+string a[10000005];
+void post(int nw) {
+	if (a[nw] == &quot;NULL&quot;) {
+		return;
+	}
+	post(nw * 2);
+	post(nw * 2 + 1);
+	cout &lt;&lt; a[nw] &lt;&lt; &quot; &quot;;
+}
+int main() {
+	ios::sync_with_stdio(false);
+	int n;
+	cin &gt;&gt; n;
+	for (long long i = 1; i &lt;= 10000000; i++) a[i] = &quot;NULL&quot;;
+	for (int i = 1; i &lt;= n; i++) {
+		cin &gt;&gt; a[i];
+	}
+	post(1);
+	return 0;
+}
+</code></pre>
+<h2 id="中序遍历">中序遍历</h2>
+<p>规则：</p>
+<ol>
+<li>
+<p>中序遍历左子树</p>
+</li>
+<li>
+<p>访问根节点</p>
+</li>
+<li>
+<p>中序遍历右子树</p>
+</li>
+</ol>
+<p>代码：</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+string a[10000005];
+void mid(int nw) {
+	if (a[nw] == &quot;NULL&quot;) {
+		return;
+	}
+	mid(nw * 2);
+	cout &lt;&lt; a[nw] &lt;&lt; &quot; &quot;;
+	mid(nw * 2 + 1);
+}
+int main() {
+	ios::sync_with_stdio(false);
+	int n;
+	cin &gt;&gt; n;
+	for (long long i = 1; i &lt;= 10000000; i++) a[i] = &quot;NULL&quot;;
+	for (int i = 1; i &lt;= n; i++) {
+		cin &gt;&gt; a[i];
+	}
+	mid(1);
+	return 0;
+}
+</code></pre>
+<p>总体代码：</p>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+using namespace std;
+string a[10000005];
+void pre(int nw) {
+	if (a[nw] == &quot;NULL&quot;) {
+		return;
+	}
+	cout &lt;&lt; a[nw] &lt;&lt; &quot; &quot;;
+	pre(nw * 2);
+	pre(nw * 2 + 1);
+}
+void mid(int nw) {
+	if (a[nw] == &quot;NULL&quot;) {
+		return;
+	}
+	mid(nw * 2);
+	cout &lt;&lt; a[nw] &lt;&lt; &quot; &quot;;
+	mid(nw * 2 + 1);
+}
+void post(int nw) {
+	if (a[nw] == &quot;NULL&quot;) {
+		return;
+	}
+	post(nw * 2);
+	post(nw * 2 + 1);
+	cout &lt;&lt; a[nw] &lt;&lt; &quot; &quot;;
+}
+int main() {
+	ios::sync_with_stdio(false);
+	int n;
+	cin &gt;&gt; n;
+	for (long long i = 1; i &lt;= 10000000; i++) a[i] = &quot;NULL&quot;;
+	for (int i = 1; i &lt;= n; i++) {
+		cin &gt;&gt; a[i];
+	}
+	pre(1);
+	cout &lt;&lt; &quot;\n&quot;;
+	mid(1);
+	cout &lt;&lt; &quot;\n&quot;;
+	post(1);
+	return 0;
+}
+</code></pre>
+<h1 id="二叉查找树学习笔记">二叉查找树学习笔记</h1>
+<p>二叉查找树是一种方便查找的树，可以自动排序，插入、查询、删除的平均复杂度都是 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>O</mi><mo>(</mo><mi>log</mi><mo>⁡</mo><mi>n</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">O(\log n)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathdefault" style="margin-right:0.02778em;">O</span><span class="mopen">(</span><span class="mop">lo<span style="margin-right:0.01389em;">g</span></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault">n</span><span class="mclose">)</span></span></span></span>。</p>
+<h2 id="实现插入">实现插入：</h2>
+<ul>
+<li>若二叉搜索树是空树，则插入一个数据为X 的结点作为根结点并返回根结点给双亲结点(如果存在的话)，否则：</li>
+<li>将根结点的数据域值与X进行比较，搜索合适的插入位置：
+<ul>
+<li>若X<strong>小于</strong>根结点的数据域值，则只需在其左子树继续搜索；</li>
+<li>若X<strong>大于</strong>根结点的数据域值，则只需在其右子树继续搜索；</li>
+<li>若X<strong>等于</strong>根结点的数据域值，无需处理，结束插入程序；</li>
+</ul>
+</li>
+<li>重复上述过程</li>
+</ul>
+<p>代码：</p>
+<pre><code class="language-cpp">
+</code></pre>
+<h2 id="实现查找">实现查找</h2>
+<ul>
+<li>查找从根结点开始，若二叉搜索树为空，则返回空，否则</li>
+<li>将根结点的数据域值与X进行比较，并进行相应的处理：
+<ul>
+<li>若X<strong>等于</strong>根结点的数据域值，搜索完成，返回该结点；</li>
+<li>若X<strong>小于</strong>根结点的数据域值，则只需在其左子树继续搜索；</li>
+<li>若X<strong>大于</strong>根结点的数据域值，则只需在其右子树继续搜索；</li>
+</ul>
+</li>
+<li>重复上述过程</li>
+</ul>
+<h2 id="整体代码">整体代码</h2>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+int a[10000005], n;
+void insert(int x, int i) {
+	if (a[i] == -1) {
+		a[i] = x;
+		return;
+	}
+	if (x &lt; a[i]) {
+		insert(x, i * 2);
+	} else if (x &gt; a[i]) {
+		insert(x, i * 2 + 1);
+	}
+}
+int find(int x, int i, int ch) {
+	if (a[i] == x) {
+		return ch;
+	}
+	if (x &lt; a[i]) {
+		find(x, i * 2, ch + 1);
+	} else if (x &gt; a[i]) {
+		find(x, i * 2 + 1, ch + 1);
+	}
+}
+int main() {
+	// ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+	memset(a, -1, sizeof(a));
+	cin &gt;&gt; n;
+	for (int i = 1; i &lt;= n; i ++) {
+		int x; cin &gt;&gt; x;
+		insert(x, 1);
+	}
+	int m; cin &gt;&gt; m;
+	while (m --) {
+		int x; cin &gt;&gt; x;
+		cout &lt;&lt; find(x, 1, 1);
+	}
+	return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[P9064 [yLOI2023] 苦竹林]]></title>
+        <id>https://zhongtianrui.github.io/post/p9064-yloi2023-ku-zhu-lin/</id>
+        <link href="https://zhongtianrui.github.io/post/p9064-yloi2023-ku-zhu-lin/">
+        </link>
+        <updated>2023-02-11T13:03:37.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="p9064-题解">P9064 题解</h1>
+<blockquote>
+<p>当时因为把 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 写成 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>3</mn></mrow><annotation encoding="application/x-tex">3</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">3</span></span></span></span> 了，痛失 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>80</mn></mrow><annotation encoding="application/x-tex">80</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">8</span><span class="mord">0</span></span></span></span> 分（</p>
+</blockquote>
+<h2 id="分析">分析</h2>
+<p>第一步：排序</p>
+<p>第二步：经过排序后，任选 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>m</mi></mrow><annotation encoding="application/x-tex">m</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.43056em;vertical-align:0em;"></span><span class="mord mathdefault">m</span></span></span></span> 个风铃，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi mathvariant="normal">∣</mi><msub><mi>b</mi><mi>i</mi></msub><mo>−</mo><msub><mi>b</mi><mi>j</mi></msub><mi mathvariant="normal">∣</mi></mrow><annotation encoding="application/x-tex">|b_i - b_j|</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.31166399999999994em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.036108em;vertical-align:-0.286108em;"></span><span class="mord"><span class="mord mathdefault">b</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.311664em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathdefault mtight" style="margin-right:0.05724em;">j</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.286108em;"><span></span></span></span></span></span></span><span class="mord">∣</span></span></span></span> 最大的情况下，<span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>i</mi><mo>=</mo><mrow><mtext mathvariant="monospace">m</mtext><mtext> </mtext><mtext mathvariant="monospace">个风铃中编号最小的编号</mtext></mrow><mo separator="true">,</mo><mi>j</mi><mo>=</mo><mrow><mtext mathvariant="monospace">m</mtext><mtext> </mtext><mtext mathvariant="monospace">个风铃中编号最打大的编号</mtext></mrow></mrow><annotation encoding="application/x-tex">i = \texttt{m 个风铃中编号最小的编号}, j = \texttt{m 个风铃中编号最打大的编号}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.65952em;vertical-align:0em;"></span><span class="mord mathdefault">i</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.85396em;vertical-align:-0.19444em;"></span><span class="mord text"><span class="mord texttt">m </span><span class="mord texttt cjk_fallback">个风铃中编号最小的编号</span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathdefault" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.61111em;vertical-align:0em;"></span><span class="mord text"><span class="mord texttt">m </span><span class="mord texttt cjk_fallback">个风铃中编号最打大的编号</span></span></span></span></span> ，枚举选中的第一个编号，找出选中的第一个和最后一个的差值最小的。</p>
+<p>第三步：输出~</p>
+<h2 id="代码">代码</h2>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+long long a[100005], n, m, ans = 1e9;
+int main() {
+    ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+    cin &gt;&gt; n &gt;&gt; m;
+    for (int i = 1; i &lt;= n; i ++) {
+        cin &gt;&gt; a[i];
+    }
+    sort(a + 1, a + n + 1);
+    for (int i = 1; i &lt;= n - m + 1; i ++) {
+        ans = min(ans, a[m - 1 + i] - a[i]);
+    }
+    cout &lt;&lt; ans;
+    return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[P9063 [yLOI2023] 分解只因数]]></title>
+        <id>https://zhongtianrui.github.io/post/p9063-yloi2023-fen-jie-zhi-yin-shu/</id>
+        <link href="https://zhongtianrui.github.io/post/p9063-yloi2023-fen-jie-zhi-yin-shu/">
+        </link>
+        <updated>2023-02-11T12:29:08.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="p9063-题解">P9063 题解</h1>
+<blockquote>
+<p>只因数...</p>
+</blockquote>
+<h2 id="分析">分析</h2>
+<p>质数中，只有 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 是偶数。有因数 <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mn>2</mn></mrow><annotation encoding="application/x-tex">2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">2</span></span></span></span> 的数是且只是偶数，所以这道题就是让我们分析一个数是不是偶数。</p>
+<h2 id="代码">代码</h2>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+    int T; cin &gt;&gt; T;
+    while (T --) {
+        long long n; cin &gt;&gt; n;
+        cout &lt;&lt; (n % 2 == 0 ? &quot;No\n&quot; : &quot;Yes\n&quot;);
+    }
+    return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[T1 Leaders]]></title>
+        <id>https://zhongtianrui.github.io/post/t1-leaders/</id>
+        <link href="https://zhongtianrui.github.io/post/t1-leaders/">
+        </link>
+        <updated>2023-02-08T08:22:03.000Z</updated>
+        <content type="html"><![CDATA[<p>这道题因为把 <code>H</code> 写成了 <code>h</code>耗费了 1.5h...</p>
+<h2 id="思路代码">思路+代码：</h2>
+<pre><code class="language-cpp">#include &lt;bits/stdc++.h&gt;
+/*
+思路：
+1. 找到每个breed的leader，记下来。
+2. 遍历每一个奶牛，看是否成一对，如果是，cnt++
+复杂度：O(n)
+记录某头牛是否是leader的方法：
+如果这头牛是第一个g或h，且e[i] &gt;= g或h的最后一个的下表，那么就是leader
+*/
+using namespace std;
+int e[100005], leaderh, leaderg, cnt;
+char se[100005];
+int main() {
+    ios::sync_with_stdio(false); cin.tie(0); cout.tie(0);
+    int n; cin &gt;&gt; n;
+    cin &gt;&gt; se;
+    for (int i = 0; i &lt; n; i ++) {
+        if (se[i] == 'H') {
+            leaderh = i;
+            break;
+        }
+    }
+    
+    for (int i = 0; i &lt; n; i ++) {
+        if (se[i] == 'G') {
+            leaderg = i;
+            break;
+        }
+    }
+
+    for (int i = 0; i &lt; n; i ++) {
+        cin &gt;&gt; e[i];
+        e[i] -= 1;
+    }
+    for (int i = n - 1; i &gt;= 0; i --) {
+        if (se[i] == 'G') {
+            if (e[leaderg] &lt; i) {
+                leaderg = -1;
+                break;
+            }
+        }
+    }
+    for (int i = n - 1; i &gt;= 0; i --) {
+        if (se[i] == 'H') {
+            if (e[leaderh] &lt; i) {
+                leaderh = -1;
+                break;
+            }
+        }
+    }
+    for (int i = 0; i &lt; n; i ++) {
+        if (se[i] == 'H') {
+            if (i &lt;= leaderg and e[i] &gt;= leaderg and leaderg &gt;= 0 or i == leaderh) {
+                cnt ++;
+            }
+        } else {
+            if (i &lt;= leaderh and e[i] &gt;= leaderh and leaderh &gt;= 0 or i == leaderg) {
+                cnt ++;
+            }
+        }
+    }
+    cout &lt;&lt; cnt - 1;
+    return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
+</feed>
